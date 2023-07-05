@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+void print_subseq(int index,int n, int arr[],vector<int>&help)
+{
+    if(index==n)
+    {
+        for(auto i:help)
+        {
+            cout<<i<<" ";
+        }
+        cout<<endl;
+        return;
+    }
+    help.push_back(arr[index]);
+    print_subseq(index+1,n,arr,help);
+    help.pop_back();
+    print_subseq(index+1,n,arr,help);
+}
+int main()
+{
+   int n;
+   cin>>n;
+   int arr[n];
+   for(int i=0;i<n;i++)
+   {
+       cin>>arr[i];
+   }
+   vector<int>help;
+   print_subseq(0,n,arr,help);
+
+    return 0;
+}
