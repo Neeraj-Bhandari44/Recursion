@@ -18,12 +18,20 @@ void fun2(int n)
     fun2(n-1);
     cout<<n;
 }
+// sum of number till n
+int sum(int n)
+{
+    if(n==0)
+    return 0;
+    return n+sum(n-1);
+}
 int main()
 {
     int n;
     cin>>n;
     fun(n);
     fun2(n);
-
+    int s=sum(n);
+    cout<<s<<endl;
     return 0;
 }
