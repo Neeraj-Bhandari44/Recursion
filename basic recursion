@@ -1,0 +1,29 @@
+//recursion basic
+#include <iostream>
+using namespace std;
+//print n to 1
+void fun(int n)
+{
+    if(n>0)
+    {
+        cout<<n;
+        fun(n-1);
+    }
+}
+//print from 1 to n
+void fun2(int n)
+{
+    if(n==0)
+    return ;
+    fun2(n-1);
+    cout<<n;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    fun(n);
+    fun2(n);
+
+    return 0;
+}
