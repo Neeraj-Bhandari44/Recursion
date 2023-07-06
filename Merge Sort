@@ -1,0 +1,64 @@
+
+#include <iostream>
+
+using namespace std;
+void merge(int l,int m,int r,int arr[])
+{
+    int temp[r+1];
+    int j=l;
+    int i=m+1;
+    while(l<=m && i<=r)
+    {
+        if(arr[l]<=arr[i])
+        {
+            temp[j]=arr[l];
+            l++;
+        }
+        else{
+            temp[j]=arr[i];
+            i++;
+        }
+        j++;
+    }
+    while(l<=m)
+    {
+       temp[j]=arr[l];
+            l++; 
+            j++;
+    }
+    while(i<=r)
+    {
+        temp[j]=arr[i];
+            i++;
+            j++;
+    }
+    for(int i=0;i<=r;i++)
+    {
+        arr[i]=temp[i];
+    }
+}
+void merge_sort(int l,int r,int arr[])
+{
+    if(l>=r)return;
+    int mid=(l+r)/2;
+    merge_sort(l,mid,arr);
+    merge_sort(mid+1,r,arr);
+    merge(l,mid,r,arr);
+}
+int main()
+{
+    cout<<"Merge sort"<<endl;
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    merge_sort(0,n-1,arr);
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
